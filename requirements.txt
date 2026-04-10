@@ -1,0 +1,15 @@
+# Nmap-mini Requirements
+# Install: pip install -r requirements.txt
+
+# Color output for terminal
+colorama>=0.4.6
+
+# Optional: SOCKS proxy support (for scanning through proxy)
+# pysocks>=1.7.1
+
+# Optional: For XML output format
+# lxml>=4.9.0
+
+# Optional: For JSON output format
+# jsonpickle>=3.0.0
+

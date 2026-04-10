@@ -61,11 +61,11 @@ Python 3.7 or higher
 
 ```bash
 # Clone the repository
-git clone https://github.com/blaxkmiradev/nmap-mini.git
+git clone https://github.com/rikixz/nmap-mini.git
 cd nmap-mini
 
 # Install required package
-pip install colorama
+pip install -r requirements.txt
 ```
 
 ### For Linux/Mac (Optional - Root Required for SYN Scans)
@@ -600,7 +600,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **Created by Rikixz**
 
-- GitHub: [github.com/blaxkmiradev](https://github.com/blaxkmiradev)
+- GitHub: [github.com/rikixz](https://github.com/rikixz)
 - Version: 1.0.0
 
 ---
