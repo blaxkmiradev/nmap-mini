@@ -1,7 +1,7 @@
 # Nmap-mini
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Version-2.0.0-blue?style=for-the-badge">
   <img src="https://img.shields.io/badge/Python-3.7+-green?style=for-the-badge">
   <img src="https://img.shields.io/badge/License-MIT-red?style=for-the-badge">
   <img src="https://img.shields.io/badge/Platform-Windows/Linux/Mac-orange?style=for-the-badge">
@@ -44,6 +44,9 @@
 - 🎨 **Colorful Output** - Beautiful terminal UI with color-coded results
 - ⚡ **Fast Scanning** - Multi-threaded concurrent port scanning
 - 📝 **Export Results** - Save scan results to files
+- 🌐 **Full Port Scan** - Scan all 65,535 ports
+- 📊 **Top Ports** - Quick scan with top 100 most common ports
+- 🔢 **500+ Services** - Extensive service/port database
 
 ---
 
@@ -58,7 +61,7 @@ Python 3.7 or higher
 
 ```bash
 # Clone the repository
-git clone https://github.com/blaxkmiradev/nmap-mini.git
+git clone https://github.com/rikixz/nmap-mini.git
 cd nmap-mini
 
 # Install required package
@@ -88,6 +91,12 @@ python nmap-mini.py -p 80,443,8080 target.com
 
 # Scan port range
 python nmap-mini.py -p 1-1000 192.168.1.1
+
+# Fast scan (top 100 ports)
+python nmap-mini.py -F target.com
+
+# Full scan (all 65535 ports)
+python nmap-mini.py -p- target.com
 ```
 
 ### Service and Version Detection
@@ -165,8 +174,8 @@ python nmap-mini.py -sV -O -T4 -p- target.com
 |--------|-------------|---------|
 | `-p <ports>` | Scan specific ports | `-p 80,443,8080` |
 | `-p <range>` | Scan port range | `-p 1-1000` |
-| `-p-` | Scan all 65,535 ports | `-p-` |
-| `-F` | Fast scan (top 21 ports) | `-F` |
+| `-p-` | Scan ALL 65,535 ports | `-p-` |
+| `-F` | Fast scan (top 100 ports) | `-F` |
 | `-r` | Scan ports sequentially | `-r` |
 
 ### Detection Options
@@ -506,6 +515,16 @@ Scan completed in 2.45 seconds
 
 ## 📖 Port Reference
 
+### Scan Modes
+
+| Mode | Ports | Command |
+|------|-------|---------|
+| Default | 21 common ports | (no flag) |
+| Fast (-F) | Top 100 ports | `-F` |
+| Custom | User specified | `-p 80,443` |
+| Range | User specified | `-p 1-1000` |
+| Full (-p-) | All 65535 ports | `-p-` |
+
 ### Common Port Ranges
 
 | Range | Purpose | Examples |
@@ -514,11 +533,18 @@ Scan completed in 2.45 seconds
 | 1024-49151 | Registered ports | 1433, 3306 |
 | 49152-65535 | Dynamic ports | Random assignments |
 
-### Top Ports Scanned by Nmap-mini
+### Top 100 Ports (Fast Scan)
 
+The fast scan mode (-F) checks these most commonly used ports:
 ```
-21, 22, 23, 25, 53, 80, 110, 111, 135, 139, 143, 443, 445, 993, 995,
-1723, 3306, 3389, 5900, 8080, 8443
+7, 9, 13, 21, 22, 23, 25, 26, 37, 53, 79, 80, 81, 88, 106, 110, 111, 113,
+119, 135, 139, 143, 144, 179, 199, 389, 427, 443, 444, 445, 465, 513, 514,
+515, 543, 544, 548, 554, 587, 631, 636, 646, 873, 990, 993, 995, 1025, 1026,
+1027, 1028, 1029, 1110, 1433, 1720, 1723, 1755, 1900, 2000, 2001, 2049, 2121,
+2717, 3000, 3128, 3306, 3389, 3986, 4899, 5000, 5009, 5051, 5060, 5101, 5190,
+5357, 5432, 5631, 5632, 5666, 5800, 5900, 5901, 6000, 6001, 6646, 7070, 8000,
+8008, 8009, 8080, 8081, 8443, 8888, 9100, 9999, 10000, 32768, 49152, 49153,
+49154, 49155, 49156, 49157, 50000, 51413
 ```
 
 ### Quick Reference
@@ -531,6 +557,9 @@ Scan completed in 2.45 seconds
 | MySQL | 3306 | TCP |
 | RDP | 3389 | TCP |
 | VNC | 5900 | TCP |
+| DNS | 53 | TCP/UDP |
+| SMTP | 25 | TCP |
+| FTP | 21 | TCP |
 
 ---
 
@@ -571,7 +600,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **Created by Rikixz**
 
-- GitHub: [github.com/rikixz](https://github.com/blaxkmiradev)
+- GitHub: [github.com/rikixz](https://github.com/rikixz)
 - Version: 1.0.0
 
 ---
